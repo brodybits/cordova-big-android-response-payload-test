@@ -1,0 +1,29 @@
+<plugin id="big-response-payload-test-plugin" version="0.0.1-dev">
+  <js-module src="www/big-response-payload-test.js" name="bigResponsePayloadTest">
+    <runs/>
+  </js-module>
+  <platform name="android">
+    <config-file target="config.xml" parent="/*">
+      <feature name="BigResponsePayloadTest">
+        <param name="android-package" value="com.demo.BigResponsePayloadTest"/>
+      </feature>
+    </config-file>
+    <source-file src="src/android/BigResponsePayloadTest.java" target-dir="src/com/demo"/>
+  </platform>
+  <platform name="ios">
+    <config-file target="config.xml" parent="/*">
+      <feature name="BigResponsePayloadTest">
+        <param name="ios-package" value="BigResponsePayloadTest"/>
+      </feature>
+    </config-file>
+    <source-file src="src/ios/BigResponsePayloadTest.m"/>
+  </platform>
+  <platform name="osx">
+    <config-file target="config.xml" parent="/*">
+      <feature name="BigResponsePayloadTest">
+        <param name="osx-package" value="BigResponsePayloadTest"/>
+      </feature>
+    </config-file>
+    <source-file src="src/ios/BigResponsePayloadTest.m"/>
+  </platform>
+</plugin>

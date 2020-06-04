@@ -1,0 +1,11 @@
+{
+  "name": "big-response-payload-test-plugin",
+  "version": "0.0.1-dev",
+  "// copyright": "Copyright 2020-present Christopher J. Brody <chris.brody+brodybits@gmail.com>",
+  "description": "big response payload test plugin",
+  "license": "Apache-2.0",
+  "author": {
+    "name": "Christopher J. Brody",
+    "email": "chris.brody+brodybits@gmail.com"
+  }
+}
