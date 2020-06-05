@@ -1,5 +1,7 @@
 # cordova-big-android-response-payload-test
 
+now with the native test running in a background thread
+
 **To run test:**
 
 - `cordova platform add android`

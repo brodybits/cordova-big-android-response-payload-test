@@ -7,6 +7,9 @@ import android.util.Log;
 // for solution that builds but does not run on Android 7:
 // import java.util.Collections;
 
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
+
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.PluginResult;
@@ -32,7 +35,14 @@ public class BigResponsePayloadTest extends CordovaPlugin {
   private void test(JSONArray args, CallbackContext cbc) throws JSONException {
     final int nativeResponseCount = args.getInt(0);
 
-    testNow(nativeResponseCount, cbc);
+    // test in background
+    threadPool.execute(new Runnable() {
+      public void run() {
+        try {
+          testNow(nativeResponseCount, cbc);
+        } catch (Exception e) { }
+      }
+    });
   }
 
   private void testNow(final int nativeResponseCount, CallbackContext cbc) {
@@ -73,4 +83,13 @@ public class BigResponsePayloadTest extends CordovaPlugin {
 
     Log.i(LOG_TAG, "SENT TEST RESPONSE MESSAGES");
   }
+
+  static {
+    threadPool = Executors.newCachedThreadPool();
+  }
+
+  // This is really an instance of ExecutorService,
+  // but only execute from Executor is needed here.
+  static private Executor threadPool;
+
 }
